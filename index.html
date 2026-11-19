@@ -11,10 +11,9 @@
   <style>
     /* Variables de color basadas en el logo */
     :root {
-      --bg-dark: #03001c;       /* Azul muy oscuro del fondo */
-      --bg-card: #0a0438;       /* Azul un poco más claro para tarjetas */
-      --cyan: #00e5ff;          /* Cian brillante de la flecha */
-      --magenta: #ff0080;       /* Rosa/Magenta de la flecha */
+      --bg-dark: #03001c;       
+      --cyan: #00e5ff;          
+      --magenta: #ff0080;       
       --white: #ffffff;
       --text-muted: #a0a5c0;
     }
@@ -33,7 +32,6 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      /* Fondo con un sutil degradado radial para dar profundidad */
       background-image: radial-gradient(circle at 50% -20%, #1a0b5e 0%, var(--bg-dark) 60%);
     }
 
@@ -50,7 +48,6 @@
       text-align: center;
     }
 
-    /* Sección Principal (Hero) */
     .hero {
       display: flex;
       flex-direction: column;
@@ -60,18 +57,19 @@
       padding-bottom: 60px;
     }
 
-    /* Logo principal grande */
+    /* Estilos aplicados a la imagen del logo */
     .main-logo {
-      width: 160px;
-      height: 160px;
-      border-radius: 35px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 229, 255, 0.1);
+      width: 170px;
+      height: 170px;
+      border-radius: 35px; /* Bordes redondeados como el icono de una app */
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 229, 255, 0.15);
       margin-bottom: 10px;
       transition: transform 0.3s ease;
     }
 
     .main-logo:hover {
-      transform: translateY(-5px) scale(1.02);
+      transform: translateY(-5px) scale(1.03);
     }
 
     h1 {
@@ -82,7 +80,6 @@
       margin-bottom: 12px;
     }
 
-    /* Degradado de texto usando los colores del logo */
     .gradient-text {
       background: linear-gradient(90deg, var(--cyan), var(--magenta));
       -webkit-background-clip: text;
@@ -98,7 +95,6 @@
       font-weight: 400;
     }
 
-    /* Botones */
     .btn-group {
       display: flex;
       gap: 16px;
@@ -143,7 +139,6 @@
       transform: translateY(-2px);
     }
 
-    /* Footer minimalista */
     footer {
       padding: 30px;
       text-align: center;
@@ -152,19 +147,11 @@
       opacity: 0.7;
     }
 
-    /* Animaciones */
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Animación secuencial para los elementos */
     .hero > *:nth-child(1) { animation: fadeUp 0.6s ease-out 0.1s forwards; opacity: 0; }
     .hero > *:nth-child(2) { animation: fadeUp 0.6s ease-out 0.2s forwards; opacity: 0; }
     .hero > *:nth-child(3) { animation: fadeUp 0.6s ease-out 0.3s forwards; opacity: 0; }
@@ -172,8 +159,8 @@
 
     @media (max-width: 600px) {
       .main-logo {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
       }
       .btn {
         width: 100%;
@@ -186,24 +173,8 @@
   <div class="container">
     <main class="hero">
       
-      <!-- LOGO SVG EXACTO (Código integrado) -->
-      <svg class="main-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-        <!-- Fondo redondeado oscuro -->
-        <rect width="100%" height="100%" rx="110" fill="#0b0347"/>
-        
-        <!-- Letra G y efectos de degradado (Blancos/Azules) -->
-        <path fill="#ffffff" d="M256 80c-97.2 0-176 78.8-176 176s78.8 176 176 176c72.3 0 134.4-44.8 160.4-108.1H330c-18 30.7-50.6 51.1-87.7 51.1-65.7 0-119.3-53.6-119.3-119.3S176.6 136.4 242.3 136.4c38.7 0 73.1 18.1 96.1 46l67.1-51.6C372.1 82.6 317.6 80 256 80z"/>
-        <path fill="#dbe4ff" d="M415.4 327.9c-14.6 37-40.8 68.3-74.5 89.1-15.8 9.8-32.8 17.6-50.7 23.1 9.7-18.6 17.4-38.3 22.8-58.8 23.7-8.5 45.5-21.3 64.4-37.4 14.8 0 29.9 1.4 38 4z" opacity=".8"/>
-        <path fill="#a8c0ff" d="M390 149.5c-15.7 11.2-32.7 20.7-50.8 28.3-4.2-6.2-8.9-12-14.1-17.4-5.2-5.4-10.8-10.4-16.7-14.9l-5.1-3.9c22.3-8.5 46-13.2 70.7-13.2 5.4 0 10.7.2 16 .5z" opacity=".7"/>
-        <path fill="#a8c0ff" d="M355.8 374.6c-22 20.1-48.8 34.6-78.2 41.4-6.9 1.6-13.9 2.6-21 3-29.3 1.8-57.7-4-83.1-16.1 8.2-18.1 18.2-35 29.7-50.6 18.4 10.3 39.5 16.2 61.8 16.2 38.7 0 73.3-18.1 96.5-46.1 5 7.5 9.6 15.4 13.6 23.6-6 9.8-12.5 19.3-19.3 28.6z" opacity=".7"/>
-        <path fill="#ffffff" d="M280.5 395.6c-14.3 4.5-29.6 7-45.5 7-30.2 0-58.5-8.5-82.6-23.2 8-16.4 17.6-31.7 28.7-45.7 15.7 9 33.8 14.2 53.1 14.2 17.3 0 33.6-4 48.2-11.1 2.2 6.1 4.2 12.3 6 18.6-2.6 3.4-5.3 6.7-8.1 9.9-2.3 2.3-4.7 4.6-7.1 6.8z" opacity=".9"/>
-
-        <!-- Flecha Cian (Arriba) -->
-        <path fill="#00e5ff" d="M160 210h140l-20-20 65 20-65 20 20-20H160z"/>
-        
-        <!-- Flecha Magenta/Rosa (Abajo) -->
-        <path fill="#ff0080" d="M186 280h130l-20-20 65 20-65 20 20-20H186z"/>
-      </svg>
+      <!-- Aquí cargamos tu imagen. Asegúrate de que el archivo se llame logo.png y esté en la misma carpeta -->
+      <img src="logo.png" alt="Logo GuardiAnd" class="main-logo">
 
       <h1>Gestión de guardias <br><span class="gradient-text">sin límites</span></h1>
       
